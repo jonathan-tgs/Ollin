@@ -1,0 +1,32 @@
+# Directorios de compilación
+build/
+out/
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.dSYM/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userprefs
+Debug/
+Release/
+x64/
+x86/
+*.ipch
+*.opensdf
+*.sdf
+*.opendb
+*.VC.db
+
+# Archivos temporales y de sistema
+*.log
+*.tmp
+*.cache
+*.pdb
+Thumbs.db
+.DS_Store
