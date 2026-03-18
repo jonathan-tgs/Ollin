@@ -1,12 +1,12 @@
-Write-Host "Ejecutando re2c..." -ForegroundColor Cyan
-re2c pre_src/pre_Ollin.cpp -o src/Ollin.cpp
+Write-Host "re2c..." -ForegroundColor Cyan
+re2c pre_src/lexer.cpp -o src/lexer/lexer.cpp
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Error en re2c" -ForegroundColor Red
     exit $LASTEXITCODE
 }
 Write-Host ""
 
-Write-Host "Ejecutando ninja..." -ForegroundColor Cyan
+Write-Host "ninja..." -ForegroundColor Cyan
 ninja -C build
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Error en ninja" -ForegroundColor Red
@@ -14,7 +14,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host ""
 
-Write-Host "Ejecutando lexer.exe..." -ForegroundColor Cyan
+Write-Host "lexer.exe..." -ForegroundColor Cyan
 .\build\lexer.exe
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Error al ejecutar lexer.exe" -ForegroundColor Red
@@ -22,4 +22,4 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host ""
 
-Write-Host "Script completado exitosamente" -ForegroundColor Green
+Write-Host "Boom" -ForegroundColor Green

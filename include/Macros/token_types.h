@@ -1,0 +1,22 @@
+#pragma once
+
+#define TOKEN_TYPES(X)\
+	X(UNKNOWN)\
+	X(LN)\
+	X(SEMICOLON)\
+	X(LPARENT)\
+	X(RPARENT)\
+	X(LBRACE)\
+	X(RBRACE)\
+	X(FN)\
+	X(INT)\
+	X(PRINT)\
+	X(STATIC)\
+	X(STRING)\
+	X(CLASS)\
+	X(PUBLIC)\
+	X(NUM)\
+	X(OPERATOR)\
+	X(IDENT)\
+	X(STRA)\
+	X(STRB)
