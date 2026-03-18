@@ -124,13 +124,11 @@ int lex(const char* input, std::vector<Token>& tkn) {
 
             [=+\-*%/<>!&|^~]{
                 col += (YYCURSOR - start);
-                std::string m(start, YYCURSOR - start);
                 tkn.emplace_back(Token::Type::OPERATOR, ln, col, std::string(start, YYCURSOR - start));
                 continue;
             }
 
             [a-zA-Z_][a-zA-Z0-9_]* {
-                std::string m(start, YYCURSOR - start);
                 col += (YYCURSOR - start);
                 tkn.emplace_back(Token::Type::IDENT, ln, col, std::string(start, YYCURSOR - start));
                 continue;
@@ -138,20 +136,18 @@ int lex(const char* input, std::vector<Token>& tkn) {
 
             "\"" ( "\\\"" | [^"] )* "\"" {
                 col += (YYCURSOR - start);
-                std::string m(start, YYCURSOR - start);
                 tkn.emplace_back(Token::Type::STRA, ln, col, std::string(start, YYCURSOR - start));
                 continue;
             }
 
             "'" ( "\\'" | [^'] )* "'"  {
                 col += (YYCURSOR - start);
-                std::string m(start, YYCURSOR - start);
                 tkn.emplace_back(Token::Type::STRB, ln, col, std::string(start, YYCURSOR - start));
                 continue;
             }
 
             * {
-                col += (YYCURSOR - start);
+                col += 1;
                 ++YYCURSOR;
                 continue;
             }
